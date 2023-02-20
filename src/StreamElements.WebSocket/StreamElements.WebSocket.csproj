@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Version>0.0.0</Version>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>10</LangVersion>
+    <Title>StreamElements.WebSocket</Title>
+    <Authors>Grofit (LP)</Authors>
+    <PackageLicenseUrl>https://github.com/strem-app/StreamElements.WebSocket.Reactive/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/strem-app/StreamElements.WebSocket.Reactive</PackageProjectUrl>
+    <Description>This is a custom version of a branch on the StreamElementsNET project</Description>
+    <PackageTags>streamelements</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="WebSocket4Net" Version="0.15.2" />
+  </ItemGroup>
+
+</Project>

@@ -4,6 +4,7 @@ using StreamElements.WebSocket.Models.Cheer;
 using StreamElements.WebSocket.Models.Follower;
 using StreamElements.WebSocket.Models.Host;
 using StreamElements.WebSocket.Models.Internal;
+using StreamElements.WebSocket.Models.Store;
 using StreamElements.WebSocket.Models.Subscriber;
 using StreamElements.WebSocket.Models.Tip;
 using StreamElements.WebSocket.Models.Unknown;
@@ -64,6 +65,7 @@ public interface IObservableStreamElementsClient
     IObservable<SubscriberNewLatest> OnSubscriberNewLatest { get; }
     IObservable<SubscriberAlltimeGifter> OnSubscriberAlltimeGifter { get; }
     IObservable<SubscriberGiftedLatest> OnSubscriberGiftedLatest { get; }
+    IObservable<StoreRedemption> OnStoreRedemption { get; }
     
     IObservable<UnknownEventArgs> OnUnknownEvent { get; }
 }

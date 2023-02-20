@@ -5,6 +5,7 @@ using StreamElements.WebSocket.Models.Cheer;
 using StreamElements.WebSocket.Models.Follower;
 using StreamElements.WebSocket.Models.Host;
 using StreamElements.WebSocket.Models.Internal;
+using StreamElements.WebSocket.Models.Store;
 using StreamElements.WebSocket.Models.Subscriber;
 using StreamElements.WebSocket.Models.Tip;
 using StreamElements.WebSocket.Models.Unknown;
@@ -65,6 +66,7 @@ public class ObservableStreamElementsClient : IObservableStreamElementsClient
     public IObservable<SubscriberNewLatest> OnSubscriberNewLatest { get; private set; }
     public IObservable<SubscriberAlltimeGifter> OnSubscriberAlltimeGifter { get; private set; }
     public IObservable<SubscriberGiftedLatest> OnSubscriberGiftedLatest { get; private set; }
+    public IObservable<StoreRedemption> OnStoreRedemption { get; private set; }
     
     public IObservable<UnknownEventArgs> OnUnknownEvent { get; private set; }
     
@@ -319,6 +321,11 @@ public class ObservableStreamElementsClient : IObservableStreamElementsClient
         OnSubscriberGiftedLatest = Observable.FromEventPattern<SubscriberGiftedLatest>(
                 e => WebSocketClient.OnSubscriberGiftedLatest += e,
                 e => WebSocketClient.OnSubscriberGiftedLatest -= e)
+            .Select(x => x.EventArgs);
+        
+        OnStoreRedemption = Observable.FromEventPattern<StoreRedemption>(
+                e => WebSocketClient.OnStoreRedemption += e,
+                e => WebSocketClient.OnStoreRedemption -= e)
             .Select(x => x.EventArgs);
         
         OnUnknownEvent = Observable.FromEventPattern<UnknownEventArgs>(
